@@ -1,0 +1,14 @@
+---
+BasedOnStyle: LLVM
+Language: Cpp
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+BreakBeforeBraces: Attach
+NamespaceIndentation: None
+AccessModifierOffset: -4
+AllowShortFunctionsOnASingleLine: Inline
+AlwaysBreakTemplateDeclarations: true
+AllowShortIfStatementsOnASingleLine: false
+AlignAfterOpenBracket: DontAlign
+SpacesInParentheses: false
