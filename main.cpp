@@ -1,15 +1,27 @@
 #include "array.hpp"
-#include <array>
 #include <iostream>
+
 int main() {
-    mystl::array<int, 5> array;
-    array[0] = 1;
-    array[1] = 2;
-    array[2] = 3;
-    array[3] = 4;
-    array[4] = 5;
-    for (uint64_t i = 0; i < array.size(); i++) {
-        std::cout << array[i] << std::endl;
+    mystl::array<int, 5> array1 = {1, 2, 3, 4, 5};
+    mystl::array<int, 5> array2{6, 7, 8, 9, 10};
+
+    std::cout << "Array1:\n";
+    for (uint64_t i = 0; i < array1.size(); i++) {
+        std::cout << array1[i] << std::endl;
     }
-    std::array<int, 3> arr;
+    std::cout << "Array2:\n";
+    for (uint64_t i = 0; i < array2.size(); i++) {
+        std::cout << array2[i] << std::endl;
+    }
+
+    array1.swap(array2);
+
+    std::cout << "Array1:\n";
+    for (uint64_t i = 0; i < array1.size(); i++) {
+        std::cout << array1[i] << std::endl;
+    }
+    std::cout << "Array2:\n";
+    for (uint64_t i = 0; i < array2.size(); i++) {
+        std::cout << array2[i] << std::endl;
+    }
 }

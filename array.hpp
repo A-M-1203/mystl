@@ -3,17 +3,20 @@
 
 namespace mystl {
 template <typename T, uint64_t Size>
-class array {
-public:
+struct array {
     constexpr T& at(uint64_t index) {
         if (index >= Size)
             throw std::out_of_range("Index out of range");
         return _elements[index];
     }
-
     constexpr const T& at(uint64_t index) const {
         if (index >= Size)
             throw std::out_of_range("Index out of range");
+        return _elements[index];
+    }
+
+    constexpr T& operator[](uint64_t index) { return _elements[index]; }
+    constexpr const T& operator[](uint64_t index) const {
         return _elements[index];
     }
 
@@ -29,12 +32,22 @@ public:
     constexpr bool empty() const noexcept { return Size == 0; }
 
     constexpr uint64_t size() const noexcept { return Size; }
-    constexpr T& operator[](uint64_t index) { return _elements[index]; }
-    constexpr const T& operator[](uint64_t index) const {
-        return _elements[index];
+
+    constexpr void fill(const T& value) {
+        for (uint64_t i = 0; i < Size; i++) {
+            _elements[i] = value;
+        }
     }
 
-private:
+    constexpr void swap(array& other) noexcept {
+        T temp[Size];
+        for (uint64_t i = 0; i < Size; i++) {
+            temp[i] = _elements[i];
+            _elements[i] = other[i];
+            other[i] = temp[i];
+        }
+    }
+
     T _elements[Size];
 };
 } // namespace mystl
