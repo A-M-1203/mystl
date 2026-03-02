@@ -1,10 +1,10 @@
----
 BasedOnStyle: LLVM
 Language: Cpp
 IndentWidth: 4
 TabWidth: 4
 UseTab: Never
 BreakBeforeBraces: Attach
+PointerAlignment: Left
 NamespaceIndentation: None
 AccessModifierOffset: -4
 AllowShortFunctionsOnASingleLine: Inline
